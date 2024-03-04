@@ -68,7 +68,7 @@ with DAG(
     # [START SparkKubernetesOperator_DAG]
     t1 = SparkKubernetesOperator(
         task_id="spark_pi_submit",
-        namespace="watch-spark-ai",
+        namespace="csy-cosy-uat",
         application_file="spark-pi.yaml",
         do_xcom_push=True,
         dag=dag,
@@ -76,7 +76,7 @@ with DAG(
 
     t2 = SparkKubernetesSensor(
         task_id="spark_pi_monitor",
-        namespace="watch-spark-ai",
+        namespace="csy-cosy-uat",
         application_name="{{ task_instance.xcom_pull(task_ids='spark_pi_submit')['metadata']['name'] }}",
         dag=dag,
     )
