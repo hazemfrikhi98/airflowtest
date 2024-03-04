@@ -1,6 +1,6 @@
 import os
 import pandas as pd
-import turbodbc
+
 from airflow import DAG
 from airflow.utils.dates import days_ago
 from airflow.operators.python import PythonOperator
